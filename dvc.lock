@@ -1,0 +1,34 @@
+schema: '2.0'
+stages:
+  get_data:
+    cmd: python get_data.py
+    deps:
+    - path: get_data.py
+      hash: md5
+      md5: 5c58a41f367641999be4b1beef6ca533
+      size: 281
+    outs:
+    - path: data/credit_card_default.csv
+      hash: md5
+      md5: 50b58a0155974d8d22a10691158c2694
+      size: 2897209
+  train:
+    cmd: python train.py
+    deps:
+    - path: data/credit_card_default.csv
+      hash: md5
+      md5: 50b58a0155974d8d22a10691158c2694
+      size: 2897209
+    - path: train.py
+      hash: md5
+      md5: 00f9cb3df9ce5c28c6d2cedf25ca91ed
+      size: 1519
+    outs:
+    - path: confusion_matrix.png
+      hash: md5
+      md5: a436cbba2931db1a3b3d7fe227c5bdeb
+      size: 19807
+    - path: metrics.json
+      hash: md5
+      md5: 9b65378d48c22bc5c28833ac1aea7478
+      size: 20
